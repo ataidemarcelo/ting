@@ -7,7 +7,7 @@ def process(path_file, instance):
         if instance.search(i)['nome_do_arquivo'] == path_file:
             print("Arquivo já processado", file=sys.stderr)
             return
-    
+
     lines = txt_importer(path_file)
 
     data = {
@@ -30,4 +30,8 @@ def remove(instance):
 
 
 def file_metadata(instance, position):
-    """Aqui irá sua implementação"""
+    try:
+        data = instance.search(position)
+        print(data)
+    except Exception:
+        print("Posição inválida", file=sys.stderr)
